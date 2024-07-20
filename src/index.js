@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits } from 'discord.js';
+import { PermissionsBitField, Client, GatewayIntentBits } from 'discord.js';
 import { configManager } from './utils/configManager.js';
 import { msgCommands } from './command/commandManager.js';
 import { refreshContextMenus } from './utils/refreshContextMenus.js';
@@ -23,11 +23,13 @@ client.on('ready', () =>{
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isMessageContextMenuCommand()) return;
   if (interaction.isMessageContextMenuCommand()) {
-    msgCommands.forEach(({ commandNames, handler }) => {
-      if (interaction.commandName === commandNames) {
-        handler(interaction);
-      }
-    });
+    if (interaction.targetMessage.channel.permissionsFor(client.user).has(PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.ManageMessages)) {
+      msgCommands.forEach(({ commandNames, handler }) => {
+        if (interaction.commandName === commandNames) {
+          handler(interaction);
+        }
+      });
+    }
   }
 });
 

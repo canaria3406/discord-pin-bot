@@ -19,7 +19,7 @@ export async function refreshContextMenus() {
         .setNameLocalizations({
           'en-GB': 'Unpin Message',
           'en-US': 'Unpin Message',
-          'zh-CN': '取消钉选讯息',
+          'zh-CN': '取消标注消息',
           'zh-TW': '取消釘選訊息',
           'ja': 'メッセージのピン留めを解除',
           'ko': '메시지 고정 해제',
