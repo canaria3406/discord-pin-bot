@@ -33,8 +33,7 @@ export async function refreshContextMenus() {
     await rest.put(
         Routes.applicationCommands(config.DISCORD_BOT_ID),
         { body: commandData },
-    );
-    console.log('Successfully reloaded Context Menus.');
+    ).then(() => console.log('Successfully reloaded Context Menus.'));
   } catch {
     console.log('Failed to reload Context Menus.');
   }
