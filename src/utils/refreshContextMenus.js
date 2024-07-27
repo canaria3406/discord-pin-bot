@@ -8,7 +8,7 @@ export async function refreshContextMenus() {
         .setNameLocalizations({
           'en-GB': 'Pin Message',
           'en-US': 'Pin Message',
-          'zh-CN': '钉选讯息',
+          'zh-CN': '标注消息',
           'zh-TW': '釘選訊息',
           'ja': 'メッセージをピン留め',
           'ko': '메시지 고정',
