@@ -22,7 +22,10 @@ client.on('ready', () =>{
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isMessageContextMenuCommand()) return;
   if (interaction.isMessageContextMenuCommand()) {
-    if (interaction.targetMessage.channel.permissionsFor(client.user).has(PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.ManageMessages)) {
+    if (interaction.targetMessage.channel.permissionsFor(client.user).has([
+        PermissionsBitField.Flags.ViewChannel, 
+        PermissionsBitField.Flags.ManageMessages
+      ])) {
       msgCommands.forEach(({ commandNames, handler }) => {
         if (interaction.commandName === commandNames) {
           handler(interaction);
